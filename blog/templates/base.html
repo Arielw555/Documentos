@@ -1,0 +1,78 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lib/datatable/dataTables.bootstrap.min.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <p class="mt-2 p-3 text-center display-2 bg-info font-weight-bold     ">Programa de Placas y Matriculas</p>
+    <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-dark bg-primary">
+            <a class="btn btn-primary" href="{%url 'index' %}">Inicio</a>
+            <a class="btn btn-primary" href="{%url 'Listado' %}">Lista de Mascotas</a>
+            <a class="btn btn-primary" href="#" role="button">Contacto</a>
+        </nav>
+
+        <a> </a>
+        <a> </a>
+        <a> </a>
+        <a> </a>
+        <a> </a>
+        <a> </a>
+        <a> </a>
+        <a> </a>
+        </a>
+    </nav>
+
+
+    <br> <br>
+
+
+
+
+</body>
+{% block extrajs %}
+
+<script type="text/javascript">
+    function abrir_modal_edicion(url) {
+        $('#edicion').load(url, function() {
+            $(this).modal('show');
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    function abrir_modal_creacion(url) {
+        $('#creacion').load(url, function() {
+            $(this).modal('show');
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    function abrir_modal_eliminar(url) {
+        $('#eliminar').load(url, function() {
+            $(this).modal('show');
+        });
+    }
+</script>
+
+
+<script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+
+
+<script src="{% static '/js/bootstrap.min.js' %}"></script>
+
+{% endblock extrajs %}
+
+
+</html>

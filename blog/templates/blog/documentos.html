@@ -1,0 +1,89 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lib/datatable/dataTables.bootstrap.min.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div align="center"><img src="{% static '/images/Capturan.jpg' %}" alt=""></div>
+
+    <br/>
+    <br/> {% if placas%}
+    <div>
+        <td>
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." name="buscar" value="{{ request.POST.buscar }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                </div>
+            </form>
+        </td>
+    </div>
+    <table id="tabla_autores" class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">NO. CEDULA</th>
+                <th scope="col">CHASIS</th>
+                <th scope="col">NO. DE PLACA</th>
+                <th scope="col">COMPAÑIA</th>
+                <th scope="col">FECHA/ORDEN</th>
+                <th scope="col">ENDOSO</th>
+                <th scope="col">FECHA ENDOSO</th>
+                <th scope="col">ESTADO</th>
+                <th scope="col">FECHA</th>
+                <th scope="col">FOTOCOPIA DE LA CEDULA</th>
+                <th scope="col">COMENTARIOS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Placa in placas %}
+            <tr>
+                <td scope="row">{{Placa.id}}</td>
+                <td scope="row">{{Placa.nombre}}</td>
+                <td scope="row">{{No_cedula}}</td>
+                <td scope="row">{{Placa.chasis}}</td>
+                <td scope="row">{{Placa.noPlaca}}</td>
+                <td scope="row">{{Placa.compania}}</td>
+                <td scope="row">{{Placa.fechaOrden}}</td>
+                <td scope="row">{{Placa.endoso}}</td>
+                <td scope="row">{{Placa.FechaEndoso}}</td>
+                <td scope="row">{{Placa.Estado}}</td>
+                <td scope="row">{{Placa.fecha}}</td>
+                <td scope="row">{{Placa.cedula}}</td>
+                <td scope="row">{{Placa.Comentario}}</td>
+
+
+
+
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+
+    {%else%}
+    <h1>NO TENEMOS ESTE DOCUMENTO</h1>
+    {%endif%}
+    <div class="modal fade" id="edicion" role="dialog"></div>
+    <div class="modal fade" id="creacion" role="dialog"></div>
+    <div class="modal fade" id="eliminar" role="dialog"></div>
+
+
+</body>
+
+
+
+</html>
