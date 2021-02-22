@@ -11,12 +11,15 @@
 </head>
 
 <body>
+
     <div align="center"><img src="{% static '/images/Capturan.jpg' %}" alt=""></div>
 
     <br/>
     <br/> {% if placas%}
     <div>
         <td>
+            <br/>
+            <br/>
             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="POST">
                 {% csrf_token %}
                 <div class="input-group">
@@ -75,11 +78,18 @@
     </table>
 
     {%else%}
-    <h1>NO TENEMOS ESTE DOCUMENTO</h1>
-    {%endif%}
-    <div class="modal fade" id="edicion" role="dialog"></div>
-    <div class="modal fade" id="creacion" role="dialog"></div>
-    <div class="modal fade" id="eliminar" role="dialog"></div>
+    <p class="mt-2 p-3 text-center display-2 bg-info font-weight-bold     ">Programa de Placas y Matriculas</p>
+    <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-dark bg-primary">
+            <a class="btn btn-primary" href="{%url 'index' %}">Inicio</a>
+            <a class="btn btn-primary" href="{%url 'documentos' %}">Lista de Mascotas</a>
+            <a class="btn btn-primary" href="#" role="button">Contacto</a>
+        </nav>
+        <h1>NO TENEMOS ESTE DOCUMENTO</h1>
+        {%endif%}
+        <div class="modal fade" id="edicion" role="dialog"></div>
+        <div class="modal fade" id="creacion" role="dialog"></div>
+        <div class="modal fade" id="eliminar" role="dialog"></div>
 
 
 </body>

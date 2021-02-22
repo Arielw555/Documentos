@@ -2,7 +2,7 @@ from django.db import models
 
 class Placas (models.Model):
     nombre = models.CharField(max_length=50)
-    chasis = models.CharField(max_length=15)
+    chasis = models.CharField(max_length=20)
     no_Cedula = models.CharField(max_length=15)
     noPlaca = models.CharField(max_length=20, blank=True)
     compania = models.CharField(max_length=50,blank=True)
